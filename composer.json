@@ -1,0 +1,20 @@
+{
+    "name": "teo/php-file-explorer",
+    "authors": [
+        {
+            "name": "Teo Lefebvre",
+            "email": "teolefebvre@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "class/"
+        }
+    },
+    "require": {
+        "altorouter/altorouter": "^2.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.3"
+    }
+}
