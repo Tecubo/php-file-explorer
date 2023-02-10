@@ -24,13 +24,25 @@ for ($i = 1; $i < count($split); $i++) {
 <?php endfor ?>
 </h4>
 
+<div class="list-group w-auto">
 <?php foreach($folder as $element): ?>
     <?php if (!is_file($element)): ?>
-        <a href="<?= $uri . '/' . basename($element) ?>" class="list-group-item list-group-item-action folder"><?= basename($element, '.php')?></a>
+        <a href="<?= $uri . '/' . basename($element) ?>" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+        <img src="/src/assets/folder.png" class="flex-shrink-0" width="32" height="32">
+        <div class="d-flex gap-2 w-100 justify-content-between">
+            <h6 class="mb-0"><?= basename($element, '.php')?></h6>
+        </div>
+        </a>
     <?php else: ?>
-        <a href="<?= '/download.php?file=' . $path . basename($element)?>" class="list-group-item list-group-item-action"><?= basename($element)?></a>
+        <a href="<?= '/download.php?file=' . $path . basename($element)?>" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+        <img src="/src/assets/file.png" class="flex-shrink-0" width="32" height="32">
+        <div class="d-flex gap-2 w-100 justify-content-between">
+            <h6 class="mb-0"><?= basename($element)?></h6>
+        </div>
+        </a>
     <?php endif ?>
 <?php endforeach ?>
+</div>
 
 <?php else:
     header('Location: /error?e=foldernotfound');

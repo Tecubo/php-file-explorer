@@ -4,7 +4,8 @@ use App\Visits;
 
 $pageTitle = 'Log In';
 
-$hashAdmin = '$2y$10$8RjWD7M0ARQ32yZLlFOxceW9DzwxSCUTTLaNp3I4yEXPrE1KzwO7u';
+$username = 'admin';
+$hash_pwd = '$2y$10$QW8C/gxtsVGGraFsPiDoyONRTZGH2rvp.9uutkpHE7wFmqqOk1Wgm'; // corresponding password : admin
 $message = null;
 $error = null;
 
@@ -21,9 +22,7 @@ if (isset($_GET['force']) && $_GET['force'] === "1") {
 }
 
 if (isset($_POST['username'], $_POST['password'])) {
-    $id = $_POST['username'];
-    $psw = $_POST['password'];
-    if ($id == 'admin' && password_verify($psw, $hashAdmin)) {
+    if ($_POST['username'] == $username && password_verify($_POST['password'], $hash_pwd)) {
         $_SESSION['connected'] = true;
         header('Location: /');
     }
